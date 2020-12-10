@@ -1,0 +1,79 @@
+﻿
+@model websiteBALO.Models.KHACHHANG
+
+@{
+    ViewBag.Title = "dangky";
+    Layout = "~/Areas/adminbalo/Views/Shared/_Layout.cshtml";
+}
+<html>
+<head>
+</head>
+<body style="background-image: url('../../hinh/colors-15646704.jpg'); ">
+    <center>
+        <div style="background-image: url('../../hinh/Bright-Blue1.jpg');width:700px; height: 900px; background-repeat: no-repeat; margin-top: -50px;border-radius:10%">
+            <center>
+                <img src="~/hinh/logo11.png" style="width:300px;">
+            </center>
+            <center><h1><b>ĐĂNG KÝ TÀI KHOẢN</b></h1></center>
+            <hr />
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <div style="opacity:0.6;background-color:Highlight;height:40px;border-radius:50px;padding:5px;width:60%;">
+                    @Html.TextBoxFor(model => model.hoten, htmlAttributes: new { @placeholder = "Nhập họ tên..." })
+                    @Html.ValidationMessageFor(model => model.hoten, "", new { @class = "text-danger" })
+                </div>
+                <br />
+                <div style="opacity:0.6;background-color:Highlight;height:40px;border-radius:50px;padding:5px;width:60%">
+                    @Html.TextBoxFor(model => model.email, htmlAttributes: new { @placeholder = "Nhập email..." })
+                    @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+                </div>
+                <br />
+                <div style="opacity:0.6;background-color:Highlight;height:40px;border-radius:50px;padding:5px;width:60%">
+
+                    @Html.TextBoxFor(model => model.diachi, htmlAttributes: new { @placeholder = "Nhập địa chỉ..." })
+                    @Html.ValidationMessageFor(model => model.diachi, "", new { @class = "text-danger" })
+
+                </div>
+                <br />
+                <div style="opacity:0.6;background-color:Highlight;height:40px;border-radius:50px;padding:5px;width:60%">
+                    @Html.TextBoxFor(model => model.dienthoai, htmlAttributes: new { @placeholder = "Nhập số điện thoại..." })
+                    @Html.ValidationMessageFor(model => model.dienthoai, "", new { @class = "text-danger" })
+                </div>
+                <br />
+                <div style="opacity:0.6;background-color:Highlight;height:40px;border-radius:50px;padding:5px;width:60%">
+                    @Html.TextBoxFor(model => model.ngaysinh, htmlAttributes: new {@placeholder = "Nhập ngày sinh..." })
+                    @Html.ValidationMessageFor(model => model.ngaysinh, "", new { @class = "text-danger" })
+                </div>
+                <br />
+
+                <div style="opacity:0.6;background-color:Highlight;height:40px;border-radius:50px;padding:5px;width:60%">
+                    @Html.TextBoxFor(model => model.taikhoan, htmlAttributes: new { @placeholder = "Nhập tài khoản..." })
+                    @Html.ValidationMessageFor(model => model.taikhoan, "", new { @class = "text-danger" })
+                </div>
+                <br />
+                <div style="opacity:0.6;background-color:Highlight;height:40px;border-radius:50px;padding:5px;width:60%">
+                    @Html.PasswordFor(model => model.matkhau, htmlAttributes: new { @placeholder = "Nhập mật khẩu..." })
+                    @Html.ValidationMessageFor(model => model.matkhau, "", new { @class = "text-danger" })
+                </div>
+                <br />
+
+                <input id="btnsubmit" type="submit" value="ĐĂNG KÝ" class="btn btn-default" style="font-size:30px;margin-top:33px;border-radius:10%;color:darkblue;background-color:lavender">
+
+            }
+            <br />
+            <center><h2 style="color:darkslategray">@ViewBag.thongbao</h2></center>
+        </div>
+        <div style="font-size:30px;float:right;text-decoration:none;">
+            <a href="@Url.Action("dangnhap","nguoidung")" style="color:darkblue;">
+                ⏩ĐĂNG NHẬP
+            </a>
+        </div>
+        <div style="font-size:30px;float:left;">
+            <a href="@Url.Action("Index","Home")" style="color:darkblue;">
+                🔙QUAY LẠI
+            </a>
+        </div>
+    </center>
+</body>
+</html>

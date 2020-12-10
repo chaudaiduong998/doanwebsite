@@ -1,0 +1,76 @@
+﻿@model IEnumerable<websiteBALO.Models.SANPHAM>
+
+@{
+    ViewBag.Title = "SẢN PHẨM";
+    Layout = "~/Areas/adminbalo/Views/Shared/Adminlayout.cshtml";
+}
+<center>
+    <h1><b>👨‍🎓QUẢN LÝ SẢN PHẨM</b></h1></br>
+    <h2>📖</h2>
+</center>
+<br />
+<center>
+    <table class="table" border="1" style="font-size:20px;color:black;font-family:'Times New Roman';background-color:white;margin-left:7px;width:1150px">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Mabalo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tenbalo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.giaban)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mota)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.banbia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ngaycapnhap)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.soluongton)
+            </th>
+            <th>
+               
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mabalo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tenbalo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.giaban)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.mota)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.banbia)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ngaycapnhap)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.soluongton)
+                </td>
+
+               
+                <td>
+                    <button style="font-size:20px;width:160px;height:50px;">  <a href="@Url.Action("SuaSanPham",new { @mabalo=item.Mabalo})" style="color:darkred;">Sửa Thông Tin</a></button>
+
+                </td>
+            </tr>
+        }
+
+    </table>
+</center>
